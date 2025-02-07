@@ -1,0 +1,103 @@
+//-----LocalHost-----
+//Home
+###
+GET http://localhost:3000/
+
+//All Animals
+###
+GET http://localhost:3000/animals/
+
+//Single Animals
+###
+GET http://localhost:3000/animals/67a4df40f0863b195131b096
+###
+GET http://localhost:3000/animals/67a4e0b7f0863b195131b097
+###
+GET http://localhost:3000/animals/67a4e111f0863b195131b099
+###
+GET http://localhost:3000/animals/67a4e16bf0863b195131b09b
+###
+GET http://localhost:3000/animals/67a4e210f0863b195131b09f
+
+//Create
+### 
+POST http://localhost:3000/animals HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Riley",
+    "species": "cat",
+    "age": 5,
+    "constitution": "finnicky",
+    "gender": "f"
+}
+
+//Update
+### 
+PUT http://localhost:3000/animals/67a664fda33b31ca3b1e5c58 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "Riley",
+    "species": "cat",
+    "age": 5,
+    "constitution": "finnicky",
+    "gender": "m"
+}
+
+//Delete
+### 
+DELETE http://localhost:3000/animals/67a664fda33b31ca3b1e5c58 HTTP/1.1
+
+
+//-----Render-----
+//All Animals
+###
+GET https://animalshelter-wyak.onrender.com/animals/
+
+//Single animals
+###
+GET https://animalshelter-wyak.onrender.com/animals/67a4df40f0863b195131b096
+###
+GET https://animalshelter-wyak.onrender.com/animals/67a4e0b7f0863b195131b097
+###
+GET https://animalshelter-wyak.onrender.com/animals/67a4e111f0863b195131b099
+###
+GET https://animalshelter-wyak.onrender.com/animals/67a4e16bf0863b195131b09b
+###
+GET https://animalshelter-wyak.onrender.com/animals/67a4e210f0863b195131b09f
+
+//Create
+### 
+POST https://animalshelter-wyak.onrender.com/animals HTTP/1.1
+content-type: application/json
+
+{
+     "name": "Florence",
+    "species": "rat",
+    "age": 3,
+    "constitution": "stealthy",
+    "gender": "f"
+}
+
+//Update
+### 
+PUT https://animalshelter-wyak.onrender.com/animals/67883e8fd6e779fca06a3de2 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "Florence",
+    "species": "rat",
+    "age": 3,
+    "constitution": "stealthy",
+    "gender": "m"
+}
+
+//Delete
+### 
+DELETE https://animalshelter-wyak.onrender.com/animals/6792e3448a337097dd209af8 HTTP/1.1
+
+
+
+//Swagger
+https://animalshelter-wyak.onrender.com/api-docs

@@ -7,9 +7,7 @@
   },
   "host": "animalshelter-wyak.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/": {
       "get": {
@@ -24,9 +22,7 @@
     "/animals/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -77,9 +73,7 @@
     "/animals/{id}": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",

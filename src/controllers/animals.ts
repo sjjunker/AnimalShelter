@@ -16,7 +16,7 @@ export async function CreateAnimal(req: Request, res: Response) {
 
     //Get the collection from the database
     const database = GetDatabase();
-    const collection = database.collection("animals");
+    const collection = database.collection("Animals");
 
     //Add the animal to the collection and return a response
     collection.insertOne(animal).then((response) => {
@@ -48,7 +48,7 @@ export async function UpdateAnimal(req: Request, res: Response) {
 
     //Update the animal using the animal id and return a response
     const database = GetDatabase();
-    const collection = database.collection("animals");
+    const collection = database.collection("Animals");
 
     collection
       .updateOne({ _id: animalId }, { $set: animal })
@@ -75,7 +75,7 @@ export async function DeleteAnimal(req: Request, res: Response) {
 
     //Delete the animal using the animal id and return a response
     const response = await GetDatabase()
-      .collection("animals")
+      .collection("Animals")
       .deleteOne({ _id: animalId });
 
     if (response.deletedCount > 0) {
@@ -92,7 +92,7 @@ export async function DeleteAnimal(req: Request, res: Response) {
 //Get all the animals
 export async function GetAll(req: Request, res: Response) {
   try {
-    const result = GetDatabase().collection("animals").find();
+    const result = GetDatabase().collection("Animals").find();
 
     result.toArray().then((lists) => {
       res.setHeader("Content-Type", "application/json");
@@ -107,7 +107,7 @@ export async function GetAll(req: Request, res: Response) {
 export async function GetSingle(req: Request, res: Response) {
   try {
     const animalId = new ObjectId(req.params.id);
-    const result = GetDatabase().collection("animals").find({ _id: animalId });
+    const result = GetDatabase().collection("Animals").find({ _id: animalId });
 
     result.toArray().then((lists) => {
       res.setHeader("Content-Type", "application/json");
