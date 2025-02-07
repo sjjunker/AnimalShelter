@@ -1,11 +1,12 @@
 {
   "name": "animalshelter",
   "version": "1.0.0",
+  "module": "commonjs",
   "description": "A backend web application that stores and retrieves shelter animals from a database.",
-  "main": "server.ts",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "ts-node server.ts",
-    "tsc": "tsc"
+    "start": "npx tsx ./src/server.ts",
+    "swagger": "npx tsx ./src/swagger.ts"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,19 @@
     "url": "https://github.com/sjjunker/AnimalShelter/issues"
   },
   "homepage": "https://github.com/sjjunker/AnimalShelter#readme",
-  "devDependencies": {
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.1",
+    "@types/swagger-ui-express": "^4.1.7",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongodb": "^6.13.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
     "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
   }
 }
