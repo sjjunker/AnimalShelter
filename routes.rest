@@ -82,7 +82,7 @@ content-type: application/json
 
 //Update
 ### 
-PUT https://animalshelter-wyak.onrender.com/animals/67883e8fd6e779fca06a3de2 HTTP/1.1
+PUT https://animalshelter-wyak.onrender.com/animals/67a665d03aa74b0b7cc9d945 HTTP/1.1
 content-type: application/json
 
 {
@@ -90,12 +90,12 @@ content-type: application/json
     "species": "rat",
     "age": 3,
     "constitution": "stealthy",
-    "gender": "m"
+    "gender": "M"
 }
 
 //Delete
 ### 
-DELETE https://animalshelter-wyak.onrender.com/animals/6792e3448a337097dd209af8 HTTP/1.1
+DELETE https://animalshelter-wyak.onrender.com/animals/67a665d03aa74b0b7cc9d945 HTTP/1.1
 
 
 
