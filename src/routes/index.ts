@@ -7,7 +7,7 @@ import swaggerRouter from "./swagger.ts";
 const router = express.Router();
 
 //Get Animals routes
-router.use("/animals", animalRouter).use("api-docs", swaggerRouter);
+router.use("/animals", animalRouter).use("/api-docs", swaggerRouter);
 
 //Get res for application name
 router.get("/", getName);
