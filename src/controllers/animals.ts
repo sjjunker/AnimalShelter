@@ -1,9 +1,13 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { GetDatabase } from "../db/connection.ts";
 import { ObjectId } from "mongodb";
 
 //Create a new animal
-export async function CreateAnimal(req: Request, res: Response) {
+export async function CreateAnimal(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   try {
     //Get animal attributes from the req
     const animal = {
@@ -32,7 +36,11 @@ export async function CreateAnimal(req: Request, res: Response) {
 }
 
 //Update animal
-export async function UpdateAnimal(req: Request, res: Response) {
+export async function UpdateAnimal(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   try {
     //Get the animal id from the url
     const animalId = new ObjectId(req.params.id);
@@ -68,7 +76,11 @@ export async function UpdateAnimal(req: Request, res: Response) {
   }
 }
 
-export async function DeleteAnimal(req: Request, res: Response) {
+export async function DeleteAnimal(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   try {
     //Get the animal id from the url
     const animalId = new ObjectId(req.params.id);
@@ -90,7 +102,7 @@ export async function DeleteAnimal(req: Request, res: Response) {
 }
 
 //Get all the animals
-export async function GetAll(req: Request, res: Response) {
+export async function GetAll(req: Request, res: Response, next: NextFunction) {
   try {
     const result = GetDatabase().collection("Animals").find();
 
@@ -104,7 +116,11 @@ export async function GetAll(req: Request, res: Response) {
 }
 
 //Get a single animal using url parameter
-export async function GetSingle(req: Request, res: Response) {
+export async function GetSingle(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   try {
     const animalId = new ObjectId(req.params.id);
     const result = GetDatabase().collection("Animals").find({ _id: animalId });

@@ -25,16 +25,16 @@ POST http://localhost:3000/animals HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Riley",
-    "species": "cat",
-    "age": 5,
-    "constitution": "finnicky",
-    "gender": "f"
+    "name": "",
+    "species": "Dog",
+    "age": 2,
+    "constitution": "swimmy",
+    "gender": "F"
 }
 
 //Update
 ### 
-PUT http://localhost:3000/animals/67a664fda33b31ca3b1e5c58 HTTP/1.1
+PUT http://localhost:3000/animals/67af76315cc5fd70dd1facc3 HTTP/1.1
 content-type: application/json
 
 {
@@ -42,12 +42,12 @@ content-type: application/json
     "species": "cat",
     "age": 5,
     "constitution": "finnicky",
-    "gender": "m"
+    "gender": "M"
 }
 
 //Delete
 ### 
-DELETE http://localhost:3000/animals/67a664fda33b31ca3b1e5c58 HTTP/1.1
+DELETE http://localhost:3000/animals/67af76315cc5fd70dd1facc3 HTTP/1.1
 
 
 //-----Render-----
@@ -99,5 +99,6 @@ DELETE https://animalshelter-wyak.onrender.com/animals/67a665d03aa74b0b7cc9d945 
 
 
 
-//Swagger
+//API Docs
+http://localhost:3000/api-docs
 https://animalshelter-wyak.onrender.com/api-docs

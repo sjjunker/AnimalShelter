@@ -1,8 +1,7 @@
 //Get express router
 import express from "express";
-const animalRouter = express.Router();
-
-//Get controller
+import { contactValidationRules, validate } from "../utilities/validator.ts";
+import handleErrors from "../utilities/index.ts";
 import {
   CreateAnimal,
   UpdateAnimal,
@@ -11,13 +10,27 @@ import {
   GetSingle,
 } from "../controllers/animals.ts";
 
+const animalRouter = express.Router();
+
 //Get res for each controller option
-animalRouter.get("/", GetAll);
-animalRouter.get("/:id", GetSingle);
+animalRouter.get("/", handleErrors(GetAll));
+animalRouter.get("/:id", handleErrors(GetSingle));
 
 //POST, PUT, DELETE methods
-animalRouter.post("/", CreateAnimal);
-animalRouter.put("/:id", UpdateAnimal);
-animalRouter.delete("/:id", DeleteAnimal);
+animalRouter.post(
+  "/",
+  contactValidationRules(),
+  validate,
+  handleErrors(CreateAnimal)
+);
+
+animalRouter.put(
+  "/:id",
+  contactValidationRules(),
+  validate,
+  handleErrors(UpdateAnimal)
+);
+
+animalRouter.delete("/:id", handleErrors(DeleteAnimal));
 
 export default animalRouter;
