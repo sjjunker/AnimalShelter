@@ -18,6 +18,8 @@ GET http://localhost:3000/animals/67a4e111f0863b195131b099
 GET http://localhost:3000/animals/67a4e16bf0863b195131b09b
 ###
 GET http://localhost:3000/animals/67a4e210f0863b195131b09f
+###
+GET http://localhost:3000/animals/1234
 
 //Create
 ### 
@@ -25,29 +27,29 @@ POST http://localhost:3000/animals HTTP/1.1
 content-type: application/json
 
 {
-    "name": "",
+    "name": "Bobby",
     "species": "Dog",
     "age": 2,
-    "constitution": "swimmy",
-    "gender": "F"
+    "constitution": "Bouncy",
+    "gender": "M"
 }
 
 //Update
 ### 
-PUT http://localhost:3000/animals/67af76315cc5fd70dd1facc3 HTTP/1.1
+PUT http://localhost:3000/animals/67af7f1416c0712c7503e137 HTTP/1.1
 content-type: application/json
 
 {
-     "name": "Riley",
-    "species": "cat",
-    "age": 5,
-    "constitution": "finnicky",
+    "name": "Bobby",
+    "species": "Dog",
+    "age": 12,
+    "constitution": "Bouncy",
     "gender": "M"
 }
 
 //Delete
 ### 
-DELETE http://localhost:3000/animals/67af76315cc5fd70dd1facc3 HTTP/1.1
+DELETE http://localhost:3000/animals/67af7f1416c0712c7503e137 HTTP/1.1
 
 
 //-----Render-----
@@ -66,6 +68,8 @@ GET https://animalshelter-wyak.onrender.com/animals/67a4e111f0863b195131b099
 GET https://animalshelter-wyak.onrender.com/animals/67a4e16bf0863b195131b09b
 ###
 GET https://animalshelter-wyak.onrender.com/animals/67a4e210f0863b195131b09f
+###
+GET https://animalshelter-wyak.onrender.com/animals/1234 
 
 //Create
 ### 
@@ -73,21 +77,21 @@ POST https://animalshelter-wyak.onrender.com/animals HTTP/1.1
 content-type: application/json
 
 {
-     "name": "Florence",
+    "name": "Florence",
     "species": "rat",
     "age": 3,
     "constitution": "stealthy",
-    "gender": "f"
+    "gender": "F"
 }
 
 //Update
 ### 
-PUT https://animalshelter-wyak.onrender.com/animals/67a665d03aa74b0b7cc9d945 HTTP/1.1
+PUT https://animalshelter-wyak.onrender.com/animals/67af7fea92dd9e2004cb8357 HTTP/1.1
 content-type: application/json
 
 {
-     "name": "Florence",
-    "species": "rat",
+    "name": "Florence",
+    "species": "cat",
     "age": 3,
     "constitution": "stealthy",
     "gender": "M"
@@ -95,7 +99,7 @@ content-type: application/json
 
 //Delete
 ### 
-DELETE https://animalshelter-wyak.onrender.com/animals/67a665d03aa74b0b7cc9d945 HTTP/1.1
+DELETE https://animalshelter-wyak.onrender.com/animals/67af7fea92dd9e2004cb8357 HTTP/1.1
 
 
 
