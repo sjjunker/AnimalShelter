@@ -10,6 +10,10 @@ const doc = {
 };
 
 const outputFile = "./swagger.json";
-const endpointFiles = ["./routes/index.ts"];
+const endpointFiles = [
+  "./routes/index.ts",
+  "./routes/profile.ts",
+  "./routes/auth.ts",
+];
 
 swaggerAutogen({ openai: "3.0.0" })(outputFile, endpointFiles, doc);

@@ -5,23 +5,22 @@ import authRouter from "./auth.ts";
 import animalRouter from "./animals.ts";
 import swaggerRouter from "./swagger.ts";
 import handleErrors from "../utilities/index.ts";
+import profileRouter from "./profile.ts";
 
 const router = express.Router();
 
-//TODO:
-// Import the login routes
-// Import ensure login
-// --Use ensure login middleware within each route authentication is needed
-// --You don't really need it for the animals route
-// --Create a user profile route, and use there
+//Get profile route
+router.use("/profile", handleErrors(profileRouter));
 
-//Get login route
+//Get authorization route
 router.use("/auth", handleErrors(authRouter));
 
 //Get Animals routes
-router.use("/animals", animalRouter).use("/api-docs", swaggerRouter);
+router.use("/animals", animalRouter);
 
 //Get res for application name
 router.get("/", handleErrors(getName));
+
+router.use("/api-docs", swaggerRouter);
 
 export default router;
