@@ -13,6 +13,13 @@ export function contactValidationRules() {
       .isAlpha()
       .withMessage("Species is required."),
 
+    body("breed")
+      .trim()
+      .notEmpty()
+      .escape()
+      .isAlpha()
+      .withMessage("Breed is required."),
+
     body("age")
       .trim()
       .isLength({ max: 3 })
@@ -39,7 +46,7 @@ export function contactValidationRules() {
 
 //Validation
 export function validate(req: Request, res: Response, next: NextFunction) {
-  const { name, species, age, constitution, gender } = req.body;
+  const { name, species, breed, age, constitution, gender } = req.body;
 
   let errors: any = [];
 

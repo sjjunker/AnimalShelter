@@ -29,6 +29,7 @@ content-type: application/json
 {
     "name": "Bobby",
     "species": "Dog",
+    "breed": "Chihuahua",
     "age": 2,
     "constitution": "Bouncy",
     "gender": "M"
@@ -42,6 +43,7 @@ content-type: application/json
 {
     "name": "Bobby",
     "species": "Dog",
+    "breed": "Chihuahua",
     "age": 12,
     "constitution": "Bouncy",
     "gender": "M"
@@ -79,6 +81,7 @@ content-type: application/json
 {
     "name": "Florence",
     "species": "rat",
+    "breed": "Naked Mole",
     "age": 3,
     "constitution": "stealthy",
     "gender": "F"
@@ -92,6 +95,7 @@ content-type: application/json
 {
     "name": "Florence",
     "species": "cat",
+    "breed": "Siamese",
     "age": 3,
     "constitution": "stealthy",
     "gender": "M"

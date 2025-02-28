@@ -13,6 +13,7 @@ export async function CreateAnimal(
     const animal = {
       name: req.body.name,
       species: req.body.species,
+      breed: req.body.breed,
       age: req.body.age,
       constitution: req.body.constitution,
       gender: req.body.gender,
@@ -49,6 +50,7 @@ export async function UpdateAnimal(
     const animal = {
       name: req.body.name,
       species: req.body.species,
+      breed: req.body.breed,
       age: req.body.age,
       constitution: req.body.constitution,
       gender: req.body.gender,
