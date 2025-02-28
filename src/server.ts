@@ -6,6 +6,8 @@ import env from "dotenv";
 import router from "./routes/index.ts";
 import passport from "passport";
 import cookieSession from "cookie-session";
+import session from "express-session";
+import "./config/passport.ts";
 
 env.config({ path: "AnimalShelter" + "/.env" });
 

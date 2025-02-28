@@ -2,7 +2,7 @@ import { body, validationResult } from "express-validator";
 import { Request, Response, NextFunction } from "express";
 
 //Rules
-export function contactValidationRules() {
+export function animalValidationRules() {
   return [
     body("name").trim().notEmpty().escape().withMessage("Name is required."),
 
@@ -58,6 +58,59 @@ export function validate(req: Request, res: Response, next: NextFunction) {
   }
   next();
 }
+
+//Rules
+export function ProfileValidationRules() {
+  return [
+    body("petNumber")
+      .trim()
+      .notEmpty()
+      .escape()
+      .isInt()
+      .withMessage("Pet number is required."),
+
+    body("city")
+      .trim()
+      .notEmpty()
+      .escape()
+      .isAlpha()
+      .withMessage("City is required."),
+
+    body("state")
+      .trim()
+      .notEmpty()
+      .escape()
+      .isAlpha()
+      .withMessage("State is required."),
+
+    body("familySize")
+      .trim()
+      .notEmpty()
+      .escape()
+      .isInt()
+      .withMessage("Family size is required."),
+  ];
+}
+
+//Validation
+export function ProfileValidate(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  const { petNumber, cit, state, familySize } = req.body;
+
+  let errors: any = [];
+
+  errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    res.status(422).json({ errors: errors.array() });
+    return;
+  }
+  next();
+}
+
 function withMessage(
   arg0: string
 ): import("express-validator/lib/options").IsEmptyOptions | undefined {

@@ -19,7 +19,7 @@ router.get(
 router.get(
   "/google/redirect",
   handleErrors(passport.authenticate("google")),
-  (req, res) => {
+  (req: Request, res: Response) => {
     res.redirect("/profile");
   }
 );

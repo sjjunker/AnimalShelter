@@ -1,6 +1,6 @@
 //Get express router
 import express from "express";
-import { contactValidationRules, validate } from "../utilities/validator.ts";
+import { animalValidationRules, validate } from "../utilities/validator.ts";
 import handleErrors from "../utilities/index.ts";
 import {
   CreateAnimal,
@@ -19,14 +19,14 @@ animalRouter.get("/:id", handleErrors(GetSingle));
 //POST, PUT, DELETE methods
 animalRouter.post(
   "/",
-  contactValidationRules(),
+  animalValidationRules(),
   validate,
   handleErrors(CreateAnimal)
 );
 
 animalRouter.put(
   "/:id",
-  contactValidationRules(),
+  animalValidationRules(),
   validate,
   handleErrors(UpdateAnimal)
 );
