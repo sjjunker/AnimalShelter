@@ -45,7 +45,11 @@ export function animalValidationRules() {
 }
 
 //Validation
-export function validate(req: Request, res: Response, next: NextFunction) {
+export function AnimalValidate(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   const { name, species, breed, age, constitution, gender } = req.body;
 
   let errors: any = [];
@@ -60,45 +64,45 @@ export function validate(req: Request, res: Response, next: NextFunction) {
 }
 
 //Rules
-export function ProfileValidationRules() {
+export function EmployeeValidationRules() {
   return [
-    body("petNumber")
-      .trim()
-      .notEmpty()
-      .escape()
-      .isInt()
-      .withMessage("Pet number is required."),
-
-    body("city")
+    body("name")
       .trim()
       .notEmpty()
       .escape()
       .isAlpha()
-      .withMessage("City is required."),
+      .withMessage("Employee name is required."),
 
-    body("state")
-      .trim()
-      .notEmpty()
-      .escape()
-      .isAlpha()
-      .withMessage("State is required."),
-
-    body("familySize")
+    body("age")
       .trim()
       .notEmpty()
       .escape()
       .isInt()
-      .withMessage("Family size is required."),
+      .withMessage("Age is required."),
+
+    body("gender")
+      .trim()
+      .notEmpty()
+      .escape()
+      .isIn(["M", "F"])
+      .withMessage("Gender is required."),
+
+    body("position")
+      .trim()
+      .notEmpty()
+      .escape()
+      .isAlpha()
+      .withMessage("Position is required."),
   ];
 }
 
 //Validation
-export function ProfileValidate(
+export function EmployeeValidate(
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  const { petNumber, cit, state, familySize } = req.body;
+  const { name, age, gender, position } = req.body;
 
   let errors: any = [];
 

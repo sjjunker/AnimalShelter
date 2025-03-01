@@ -53,6 +53,44 @@ content-type: application/json
 ### 
 DELETE http://localhost:3000/animals/67af7f1416c0712c7503e137 HTTP/1.1
 
+//Authorization
+###
+GET http://localhost:3000/auth/google
+###
+GET http://localhost:3000/auth/logout
+
+//Employee
+//Get One
+###
+GET http://localhost:3000/employees/id
+
+//Get All
+###
+GET http://localhost:3000/employees/
+
+//Create
+###
+POST http://localhost:3000/employees/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Samuel Dobson",
+    "age": 57,
+    "gender": "M",
+    "position": "Night Manager"
+}
+
+//Update
+###
+PUT http://localhost:3000/employees/id HTTP/1.1
+content-type: application/json
+{
+    
+}
+
+//Delete
+DELETE http://localhost:3000/employees/id HTTP/1.1
+
 
 //-----Render-----
 //All Animals

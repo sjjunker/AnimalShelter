@@ -5,22 +5,18 @@ const doc = {
     title: "Animal Shelter API",
     description: "An API showing a list of shelter animals",
   },
-  host: "animalshelter-wyak.onrender.com",
+  host: ["animalshelter-wyak.onrender.com"],
   schemes: ["https"],
   components: {
     securitySchemes: {
       OAuth2: {
         type: "oauth2",
         flows: {
-          authorizationCode: {
-            authorizationUrl:
-              "https://animalshelter-wyak.onrender.com/oauth/authorize",
-            tokenUrl: "https://animalshelter-wyak.onrender.com/oauth/token",
-            scopes: {
-              read: "Grants read access",
-              write: "Grants write access",
-              admin: "Grants access to admin operations",
-            },
+          implicit: {
+            authorizationUrl: [
+              "https://animalshelter-wyak.onrender.com/auth/google",
+              "http://localhost:3000/auth/google",
+            ],
           },
         },
       },
@@ -31,4 +27,4 @@ const doc = {
 const outputFile = "./swagger.json";
 const endpointFiles = ["./routes/index.ts"];
 
-swaggerAutogen({ openai: "3.0.0" })(outputFile, endpointFiles, doc);
+swaggerAutogen(outputFile, endpointFiles, doc);

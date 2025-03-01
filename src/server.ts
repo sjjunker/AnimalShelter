@@ -5,7 +5,6 @@ import bodyParser from "body-parser";
 import env from "dotenv";
 import router from "./routes/index.ts";
 import passport from "passport";
-import cookieSession from "cookie-session";
 import session from "express-session";
 import "./config/passport.ts";
 
@@ -18,12 +17,10 @@ const host = process.env.HOST || "localhost";
 //Middleware
 //Cookie Session
 app.use(
-  cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: [
-      process.env.COOKIE_KEY || "Not the",
-      process.env.COOKIE_KEY_TWO || "env keys.",
-    ],
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
   })
 );
 

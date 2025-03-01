@@ -3,7 +3,6 @@ import env from "dotenv";
 env.config();
 
 const uri = process.env.MONGODB_URI as string;
-console.log(uri);
 
 let database: Db | null = null;
 

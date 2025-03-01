@@ -4,8 +4,8 @@ import express, { Request, Response, NextFunction } from "express";
 const router = express.Router();
 import passport from "passport";
 import handleErrors from "../utilities";
+import { Login } from "../controllers/auth";
 
-//Consent Screen
 router.get(
   "/google",
   handleErrors(
@@ -15,16 +15,8 @@ router.get(
   )
 );
 
-//Redirect
-router.get(
-  "/google/redirect",
-  handleErrors(passport.authenticate("google")),
-  (req: Request, res: Response) => {
-    res.redirect("/profile");
-  }
-);
+router.get("/google/callback", handleErrors(Login));
 
-//Logout
 router.get(
   "/logout",
   handleErrors((req: Request, res: Response, next: NextFunction) => {
@@ -32,7 +24,7 @@ router.get(
       if (err) {
         return next(err);
       }
-      res.redirect("/");
+      res.status(200).redirect("/");
     });
   })
 );

@@ -13,7 +13,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
-      callbackURL: "/oauth2/redirect/google",
+      callbackURL: "/auth/google/callback",
       passReqToCallback: true,
     },
     async (
@@ -35,23 +35,19 @@ passport.use(
           const newUser = {
             username: profile.displayName,
             googleId: profile.id,
-            petNumber: null,
-            city: "",
-            state: "",
-            familySize: null,
           };
 
           try {
             const result = await collection.insertOne(newUser);
 
             if (result.insertedId) {
-              const createdUser = await collection.find({
+              const createdUser = await collection.findOne({
                 _id: result.insertedId,
               });
               done(null, createdUser);
             }
           } catch (error) {
-            console.log(`Error adding new user: ${error}`);
+            done(error, null);
           }
         } else {
           done(null, user);
@@ -66,15 +62,16 @@ passport.use(
 
 //Get user data and store in cookie
 passport.serializeUser((user: any, done) => {
-  console.log("Serializing user:", user.googleId);
-  done(null, user.googleId);
+  console.log("Serializing user:", user._id);
+  done(null, user._id);
 });
 
 //Read cookie and get user id
 passport.deserializeUser(async (id: string, done) => {
   try {
     const collection = GetDatabase().collection("Users");
-    const user = await collection.findOne({ googleId: id });
+    const { ObjectId } = require("mongodb");
+    const user = await collection.findOne({ _id: new ObjectId(id) });
 
     if (!user) {
       return done(new Error("User not found"), null);

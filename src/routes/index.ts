@@ -4,29 +4,18 @@ import getName from "../controllers/index.ts";
 import authRouter from "./auth.ts";
 import animalRouter from "./animals.ts";
 import swaggerRouter from "./swagger.ts";
-import handleErrors from "../utilities/index.ts";
-import profileRouter from "./profile.ts";
+import employeeRouter from "./employees.ts";
 
 const router = express.Router();
 
-//Get profile route
-router.use("/profile", handleErrors(profileRouter), () => {
-  swaggerRouter.security = [
-    {
-      OAuth2: ["read", "write"],
-    },
-  ];
-});
+router.get("/", getName);
 
-//Get authorization route
-router.use("/auth", handleErrors(authRouter));
+router.use("/animals", animalRouter);
 
-//Get Animals routes
-router.use("/animals", handleErrors(animalRouter));
+router.use("/auth", authRouter);
 
-//Get res for application name
-router.get("/", handleErrors(getName));
+router.use("/employees", employeeRouter);
 
-router.use("/api-docs", handleErrors(swaggerRouter));
+router.use("/api-docs", swaggerRouter);
 
 export default router;
