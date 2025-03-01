@@ -7,19 +7,11 @@ const doc = {
   },
   host: ["animalshelter-wyak.onrender.com"],
   schemes: ["https"],
-  components: {
-    securitySchemes: {
-      OAuth2: {
-        type: "oauth2",
-        flows: {
-          implicit: {
-            authorizationUrl: [
-              "https://animalshelter-wyak.onrender.com/auth/google",
-              "http://localhost:3000/auth/google",
-            ],
-          },
-        },
-      },
+  securityDefinitions: {
+    OAuth2: {
+      type: "oauth2",
+      authorizationUrl: "https://animalshelter-wyak.onrender.com/auth/google",
+      flow: "implicit",
     },
   },
 };
