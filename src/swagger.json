@@ -5,13 +5,9 @@
     "description": "An API showing a list of shelter animals",
     "version": "1.0.0"
   },
-  "host": [
-    "animalshelter-wyak.onrender.com"
-  ],
+  "host": ["animalshelter-wyak.onrender.com"],
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "securityDefinitions": {
     "OAuth2": {
       "type": "oauth2",
@@ -80,6 +76,15 @@
     "/animals/{id}": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "string",
+            "required": true,
+            "type": "string",
+            "description": "animal id"
+          }
+        ],
         "responses": {
           "default": {
             "description": ""
@@ -91,9 +96,10 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "string",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "animal id"
           },
           {
             "name": "body",
@@ -131,6 +137,15 @@
       },
       "delete": {
         "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "string",
+            "required": true,
+            "type": "string",
+            "description": "animal id"
+          }
+        ],
         "responses": {
           "default": {
             "description": ""

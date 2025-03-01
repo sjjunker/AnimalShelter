@@ -17,7 +17,16 @@ const animalRouter = express.Router();
 
 animalRouter.get("/", handleErrors(GetAll));
 
-animalRouter.get("/:id", handleErrors(GetSingle));
+animalRouter.get(
+  "/:id",
+  handleErrors(GetSingle)
+  /* #swagger.parameters['id'] = {
+        in: 'string',
+        description: 'animal id',
+        required: 'true',
+        type: 'string',
+} */
+);
 
 animalRouter.post(
   "/",
@@ -31,8 +40,23 @@ animalRouter.put(
   animalValidationRules(),
   AnimalValidate,
   handleErrors(UpdateAnimal)
+  /* #swagger.parameters['id'] = {
+        in: 'string',
+        description: 'animal id',
+        required: 'true',
+        type: 'string',
+} */
 );
 
-animalRouter.delete("/:id", handleErrors(DeleteAnimal));
+animalRouter.delete(
+  "/:id",
+  handleErrors(DeleteAnimal)
+  /* #swagger.parameters['id'] = {
+        in: 'string',
+        description: 'animal id',
+        required: 'true',
+        type: 'string',
+} */
+);
 
 export default animalRouter;

@@ -93,7 +93,7 @@ export async function DeleteAnimal(
       .deleteOne({ _id: animalId });
 
     if (response.deletedCount > 0) {
-      res.status(200).send("Animal deleted");
+      res.status(204).send("Animal deleted");
     } else {
       res.status(404).json("Animal not found");
     }
@@ -132,6 +132,6 @@ export async function GetSingle(
       res.status(200).json(lists[0]);
     });
   } catch (error) {
-    res.status(500).json(error);
+    res.status(404).json(error);
   }
 }
